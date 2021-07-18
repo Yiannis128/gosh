@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://code/game_modes/BaseGameMode.gd" type="Script" id=2]
+[ext_resource path="res://game_objects/PlayerSpawn3D.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicalSkyMaterial" id=1]
+turbidity = 100.0
+
+[sub_resource type="Sky" id=2]
+sky_material = SubResource( 1 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+sky = SubResource( 2 )
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+
+[sub_resource type="CameraEffects" id=4]
+
+[sub_resource type="BoxShape3D" id=5]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id=6]
+size = Vector3(1, 1, 1)
+
+[node name="Test_01" type="Node3D"]
+script = ExtResource( 2 )
+pawn_url = "res://game_objects/pawns/FirstPersonPawn.tscn"
+player_spawn_list_node_path = NodePath("PlayerSpawns")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+camera_effects = SubResource( 4 )
+script = null
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(10, 0.1, 10)
+script = null
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource( 5 )
+script = null
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.576085, 0)
+size = Vector3(1, 1, 1)
+script = null
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="CSGBox3D2"]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D2"]
+shape = SubResource( 6 )
+script = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.792928, -0.419394, 0.442011, 0, 0.725422, 0.688304, -0.609315, -0.545776, 0.575208, 0, 5.39881, 0)
+shadow_enabled = true
+shadow_bias = 0.005
+script = null
+
+[node name="PlayerSpawns" type="Node" parent="."]
+script = null
+
+[node name="PlayerSpawn3D" parent="PlayerSpawns" instance=ExtResource( 3 )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89304, 7.88279, 2.85722)
+
+[node name="PlayerSpawn3D2" parent="PlayerSpawns" instance=ExtResource( 3 )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0183868, 7.88279, 2.85722)
+
+[node name="PlayerSpawn3D3" parent="PlayerSpawns" instance=ExtResource( 3 )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0183868, 9.25405, 0.0406766)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://code/pawns/FirstPersonPawn.gd" type="Script" id=1]
+[ext_resource path="res://code/cameras/FirstPersonCamera.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape3D" id=1]
+radius = 0.2
+
+[node name="FirstPersonPawn" type="CharacterBody3D"]
+script = ExtResource( 1 )
+camera_path = NodePath("CameraView")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource( 1 )
+script = null
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+radius = 0.2
+sides = 16
+script = null
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232193, -0.317246)
+size = Vector3(0.1, 0.1, 0.5)
+script = null
+
+[node name="CameraView" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08105, 0)
+script = ExtResource( 2 )
+camera_yaw_path = NodePath("..")

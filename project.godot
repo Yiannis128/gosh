@@ -1,0 +1,84 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[{
+"base": "Node",
+"class": &"BaseGameMode",
+"language": &"GDScript",
+"path": "res://code/game_modes/BaseGameMode.gd"
+}, {
+"base": "CharacterBody3D",
+"class": &"BasePawn",
+"language": &"GDScript",
+"path": "res://code/pawns/BasePawn.gd"
+}, {
+"base": "Node",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://code/Player.gd"
+}, {
+"base": "Node",
+"class": &"PlayerSpawn3D",
+"language": &"GDScript",
+"path": "res://code/game_objects/PlayerSpawn3D.gd"
+}]
+_global_script_class_icons={
+"BaseGameMode": "",
+"BasePawn": "",
+"Player": "",
+"PlayerSpawn3D": ""
+}
+
+[application]
+
+config/name="gosh"
+run/main_scene="res://scenes/Main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://code/autoload/Game.gd"
+NetworkManager="*res://code/autoload/NetworkManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[input]
+
+move_forward={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_back={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_show_cmd={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":96,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+environment/defaults/default_environment="res://default_env.tres"

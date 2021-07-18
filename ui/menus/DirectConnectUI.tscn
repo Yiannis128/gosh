@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://code/ui/DirectConnect.gd" type="Script" id=1]
+
+[node name="DirectConnectUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ip_tb_path = NodePath("VBoxContainer/HBoxContainer/AddressTextBox")
+port_tb_path = NodePath("VBoxContainer/HBoxContainer/PortTextBox")
+host_button_path = NodePath("VBoxContainer/HBoxContainer2/HostButton")
+connect_button_path = NodePath("VBoxContainer/HBoxContainer2/ConnectButton")
+back_button_path = NodePath("VBoxContainer/HBoxContainer2/BackButton")
+start_button_path = NodePath("VBoxContainer/HBoxContainer2/StartButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0431373, 0, 0.25098, 1)
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+custom_constants/separation = 8
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+offset_right = 614.0
+offset_bottom = 26.0
+text = "Direct Connect"
+align = 1
+structured_text_bidi_override_options = []
+script = null
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+offset_top = 34.0
+offset_right = 614.0
+offset_bottom = 67.0
+script = null
+
+[node name="AddressTextBox" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+offset_right = 469.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+text = "127.0.0.1"
+structured_text_bidi_override_options = []
+placeholder_text = "IP Address"
+script = null
+
+[node name="PortTextBox" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+offset_left = 473.0
+offset_right = 614.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "6007"
+structured_text_bidi_override_options = []
+placeholder_text = "Port"
+script = null
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+offset_top = 75.0
+offset_right = 614.0
+offset_bottom = 104.0
+script = null
+
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+offset_right = 98.0
+offset_bottom = 29.0
+disabled = true
+text = "Start Game"
+script = null
+
+[node name="HostButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+offset_left = 102.0
+offset_right = 150.0
+offset_bottom = 29.0
+text = "Host"
+script = null
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+offset_left = 154.0
+offset_right = 158.0
+offset_bottom = 29.0
+script = null
+
+[node name="ConnectButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+offset_left = 162.0
+offset_right = 237.0
+offset_bottom = 29.0
+text = "Connect"
+script = null
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+offset_left = 241.0
+offset_right = 245.0
+offset_bottom = 29.0
+script = null
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+offset_left = 249.0
+offset_right = 298.0
+offset_bottom = 29.0
+text = "Back"
+script = null
+
+[node name="PlayerList" type="RichTextLabel" parent="VBoxContainer"]
+offset_top = 112.0
+offset_right = 614.0
+offset_bottom = 135.0
+text = "Connected Players:
+"
+fit_content_height = true
+custom_effects = []
+structured_text_bidi_override_options = []
+script = null
