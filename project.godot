@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[{
-"base": "Node",
-"class": &"BaseGameMode",
-"language": &"GDScript",
-"path": "res://code/game_modes/BaseGameMode.gd"
-}, {
 "base": "CharacterBody3D",
 "class": &"BasePawn",
 "language": &"GDScript",
@@ -30,7 +25,6 @@ _global_script_classes=[{
 "path": "res://code/game_objects/PlayerSpawn3D.gd"
 }]
 _global_script_class_icons={
-"BaseGameMode": "",
 "BasePawn": "",
 "Player": "",
 "PlayerSpawn3D": ""
