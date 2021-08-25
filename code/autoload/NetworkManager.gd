@@ -102,11 +102,11 @@ func disconnect() -> void:
 	get_tree().multiplayer.network_peer = null
 
 # Respond to sender with your information so that they can register you.
-@remote func send_info_request() -> void:
+@rpc("any", "nosync", "reliable") func send_info_request() -> void:
 	var caller_id : int = multiplayer.get_rpc_sender_id()
 	rpc_id(caller_id, StringName("register_player"), local_player.name)
 
-@remotesync func register_player(_name : String):
+@rpc("any", "sync", "reliable") func register_player(_name : String):
 	var player : Player = preload("res://game_objects/Player.tscn").instantiate()
 	player.id = multiplayer.get_rpc_sender_id()
 	player.name = _name

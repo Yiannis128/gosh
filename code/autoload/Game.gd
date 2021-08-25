@@ -14,7 +14,7 @@ func _ready() -> void:
 	command_line.visible = false
 	add_child(command_line)
 
-@remotesync func change_scene(url : String) -> void:
+@rpc("any", "sync", "reliable") func change_scene(url : String) -> void:
 	print("Changing scene to: " + url)
 	get_tree().change_scene(url)
 

@@ -39,5 +39,6 @@ func base_move(delta : float) -> void:
 	move_velocity = move_dir * max_move_speed * delta
 	linear_velocity += 
 
-@puppet func sync_transform(_transform : Transform3D):
+@rpc("puppet", "nosync", "unreliable")
+func sync_transform(_transform : Transform3D):
 	global_transform = _transform

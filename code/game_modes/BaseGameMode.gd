@@ -65,7 +65,7 @@ func pre_configure_game():
 
 # This function is called only if you are the server.
 # When the server gets the OK from all the peers, it can tell them to start.
-@remote func done_preconfiguring():
+@rpc("any", "nosync", "reliable") func done_preconfiguring():
 	var sender_id : int = multiplayer.get_rpc_sender_id()
 	
 	print("Player ID: " + str(sender_id) + " done preconfiguring")
@@ -81,7 +81,7 @@ func pre_configure_game():
 	if done_pc_pid.size() == NetworkManager.player_info.size():
 		rpc(StringName("post_configure_game"))
 
-@remotesync func post_configure_game():
+@rpc("any", "sync", "reliable") func post_configure_game():
 	# Only the server is allowed to tell a client to unpause
 	if multiplayer.is_network_server():
 		print("Preconfiguring finished...")
